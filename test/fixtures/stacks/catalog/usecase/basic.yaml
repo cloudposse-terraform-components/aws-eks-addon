@@ -2,7 +2,7 @@ components:
   terraform:
     eks/addon/cloudwatch:
       metadata:
-        component: eks/addon
+        component: target
       vars:
         enabled: true
         addon_name: amazon-cloudwatch-observability
