@@ -1,7 +1,7 @@
 components:
   terraform:
-    example/disabled:
+    eks/addon/cloudwatch:
       metadata:
-        component: target
+        component: eks/addon
       vars:
         enabled: false
