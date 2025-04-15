@@ -1,7 +1,13 @@
 components:
   terraform:
-    eks/addon/cloudwatch:
+    eks/addon/cloudwatch/disabled:
       metadata:
-        component: target
+        component: eks/addon
       vars:
         enabled: false
+
+        # required variable
+        addon_name: foo
+
+        # required for testing
+        kube_exec_auth_role_arn_enabled: false

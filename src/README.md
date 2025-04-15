@@ -60,7 +60,7 @@ components:
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_eks"></a> [eks](#module\_eks) | cloudposse/stack-config/yaml//modules/remote-state | 1.5.0 |
+| <a name="module_eks"></a> [eks](#module\_eks) | cloudposse/stack-config/yaml//modules/remote-state | 1.8.0 |
 | <a name="module_eks_iam_role"></a> [eks\_iam\_role](#module\_eks\_iam\_role) | cloudposse/eks-iam-role/aws | 2.1.1 |
 | <a name="module_iam_roles"></a> [iam\_roles](#module\_iam\_roles) | ../../account-map/modules/iam-roles | n/a |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
@@ -126,7 +126,9 @@ components:
 
 | Name | Description |
 |------|-------------|
-| <a name="output_mock"></a> [mock](#output\_mock) | Mock output example for the Cloud Posse Terraform component template |
+| <a name="output_addon_arn"></a> [addon\_arn](#output\_addon\_arn) | The Amazon Resource Name (ARN) of the EKS addon |
+| <a name="output_addon_version"></a> [addon\_version](#output\_addon\_version) | The version of the EKS addon |
+| <a name="output_priority_class_name"></a> [priority\_class\_name](#output\_priority\_class\_name) | The name of the Kubernetes priority class (if enabled) |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 <!-- prettier-ignore-end -->
 
