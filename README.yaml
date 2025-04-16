@@ -1,23 +1,37 @@
-name: "template"
+name: "aws-eks-addon"
 
 # Canonical GitHub repo
-github_repo: "cloudposse-terraform-components/template"
+github_repo: "cloudposse-terraform-components/aws-eks-addon"
 
 # Short description of this project
 description: |-
-  Description of this component
+  This component is responsible for installing and managing addons for EKS clusters.
+
+  You may want to use this component rather than `var.addons` with `eks/cluster` to deploy addons that require additional
+  prerequisites or configuration before they can be installed. For example, if you need to install a priority class before
+  installing an addon, you can use this component to install the priority class first.
 
 usage: |-
-  **Stack Level**: Regional or Test47
+  **Stack Level**: Regional
 
-  Here's an example snippet for how to use this component.
-  
+  For example, to install the CloudWatch Observability addon for EKS:
+
   ```yaml
   components:
     terraform:
-      foo:
+      # https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Observability-EKS-addon.html
+      eks/addon/cloudwatch:
+        metadata:
+          component: eks/addon
         vars:
-          enabled: true
+          addon_name: amazon-cloudwatch-observability
+          addon_version: "v2.5.0-eksbuild.1"
+          kubernetes_namespace: amazon-cloudwatch # this namespace is defined by the addon
+          resolve_conflicts_on_create: OVERWRITE
+          resolve_conflicts_on_update: OVERWRITE
+          priority_class_enabled: true
+          additional_policy_arns:
+            - "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
   ```
 
 include:
@@ -29,14 +43,14 @@ tags:
   - aws
   - components
   - terraform-components
-  - root
-  - geodesic
-  - reference-implementation
-  - reference-architecture
+  - eks
+  - addon
+  - kubernetes
+  - helm
 
 # Categories of this project
 categories:
-  - terraform-modules/root
+  - terraform-modules/eks
   - terraform-components
 
 # License of this project
@@ -45,8 +59,8 @@ license: "APACHE2"
 # Badges to display
 badges:
   - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse-terraform-components/template.svg?style=for-the-badge"
-    url: "https://github.com/cloudposse-terraform-components/template/releases/latest"
+    image: "https://img.shields.io/github/release/cloudposse-terraform-components/aws-eks-addon.svg?style=for-the-badge"
+    url: "https://github.com/cloudposse-terraform-components/aws-eks-addon/releases/latest"
   - name: "Slack Community"
     image: "https://slack.cloudposse.com/for-the-badge.svg"
     url: "https://slack.cloudposse.com"

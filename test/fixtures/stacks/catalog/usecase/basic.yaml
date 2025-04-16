@@ -1,7 +1,18 @@
 components:
   terraform:
-    example/basic:
+    eks/addon/cloudwatch/basic:
       metadata:
-        component: target
+        component: eks/addon
       vars:
         enabled: true
+        addon_name: amazon-cloudwatch-observability
+        addon_version: "v2.5.0-eksbuild.1"
+        kubernetes_namespace: amazon-cloudwatch
+        resolve_conflicts_on_create: OVERWRITE
+        resolve_conflicts_on_update: OVERWRITE
+        priority_class_enabled: true
+        additional_policy_arns:
+          - "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
+
+        # required for testing
+        kube_exec_auth_role_arn_enabled: false
