@@ -30,7 +30,7 @@ resource "aws_eks_addon" "this" {
 
 module "eks_iam_role" {
   source  = "cloudposse/eks-iam-role/aws"
-  version = "2.1.1"
+  version = "2.2.1"
 
   enabled = local.enabled
 
