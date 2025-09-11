@@ -34,8 +34,7 @@ usage: |-
             - "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
   ```
 
-include:
-  - "docs/terraform.md"
+include: []
 
 tags:
   - terraform
