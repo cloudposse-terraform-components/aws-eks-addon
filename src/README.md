@@ -1,19 +1,23 @@
 ---
 tags:
-  - component/eks/addon
-  - layer/eks
-  - provider/aws
-  - provider/helm
+  - terraform
+  - terraform-modules
+  - aws
+  - components
+  - terraform-components
+  - eks
+  - addon
+  - kubernetes
+  - helm
 ---
 
-# Component: `eks/addon`
+# Component: `eks-addon`
 
 This component is responsible for installing and managing addons for EKS clusters.
 
 You may want to use this component rather than `var.addons` with `eks/cluster` to deploy addons that require additional
 prerequisites or configuration before they can be installed. For example, if you need to install a priority class before
 installing an addon, you can use this component to install the priority class first.
-
 ## Usage
 
 **Stack Level**: Regional
@@ -38,8 +42,8 @@ components:
           - "arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy"
 ```
 
-<!-- prettier-ignore-start -->
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -129,7 +133,19 @@ components:
 | <a name="output_addon_arn"></a> [addon\_arn](#output\_addon\_arn) | The Amazon Resource Name (ARN) of the EKS addon |
 | <a name="output_addon_version"></a> [addon\_version](#output\_addon\_version) | The version of the EKS addon |
 | <a name="output_priority_class_name"></a> [priority\_class\_name](#output\_priority\_class\_name) | The name of the Kubernetes priority class (if enabled) |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-<!-- prettier-ignore-end -->
+<!-- markdownlint-restore -->
 
-[<img src="https://cloudposse.com/logo-300x69.svg" height="32" align="right"/>](https://cpco.io/component)
+
+
+## References
+
+
+- [Cloud Posse Documentation](https://docs.cloudposse.com) - Complete documentation for the Cloud Posse solution
+
+- [Reference Architectures](https://cloudposse.com/) - Launch effortlessly with our turnkey reference architectures, built either by your team or ours.
+
+
+
+
+[<img src="https://cloudposse.com/logo-300x69.svg" height="32" align="right"/>](https://cpco.io/homepage?utm_source=github&utm_medium=readme&utm_campaign=cloudposse-terraform-components/aws-eks-addon&utm_content=)
+
